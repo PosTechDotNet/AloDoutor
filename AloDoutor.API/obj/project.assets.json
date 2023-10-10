@@ -3455,11 +3455,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alexj\\OneDrive\\Documentos\\Fiap\\Modulo 01\\Tech Challenge\\AloDoutor\\AloDOutor\\AloDoutor.Api.csproj",
+      "projectUniqueName": "C:\\Users\\alexj\\OneDrive\\Documentos\\Fiap\\Modulo 01\\Tech Challenge\\AloDoutor\\AloDoutor.API\\AloDoutor.Api.csproj",
       "projectName": "AloDoutor.Api",
-      "projectPath": "C:\\Users\\alexj\\OneDrive\\Documentos\\Fiap\\Modulo 01\\Tech Challenge\\AloDoutor\\AloDOutor\\AloDoutor.Api.csproj",
+      "projectPath": "C:\\Users\\alexj\\OneDrive\\Documentos\\Fiap\\Modulo 01\\Tech Challenge\\AloDoutor\\AloDoutor.API\\AloDoutor.Api.csproj",
       "packagesPath": "C:\\Users\\alexj\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alexj\\OneDrive\\Documentos\\Fiap\\Modulo 01\\Tech Challenge\\AloDoutor\\AloDOutor\\obj\\",
+      "outputPath": "C:\\Users\\alexj\\OneDrive\\Documentos\\Fiap\\Modulo 01\\Tech Challenge\\AloDoutor\\AloDoutor.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\alexj\\AppData\\Roaming\\NuGet\\NuGet.Config",

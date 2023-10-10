@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "K1/O1OTqfwX0aTHn/OKUL22+8ftRH3J65rL0cMWJ5SqAU3/UPBFxfF6wGIIITuXzEcrec9GIVnqvkigBrQdBrg==",
+  "dgSpecHash": "glXeM0nngzGZgrc0nZ7wZ8VEpvffZwk/1LF14DsGtcFlSe59UaipxkCO0FJM+OiN0WOTZV2iR7zRlTZxlb3vCQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alexj\\OneDrive\\Documentos\\Fiap\\Modulo 01\\Tech Challenge\\AloDoutor\\AloDOutor\\AloDoutor.Api.csproj",
+  "projectFilePath": "C:\\Users\\alexj\\OneDrive\\Documentos\\Fiap\\Modulo 01\\Tech Challenge\\AloDoutor\\AloDoutor.API\\AloDoutor.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alexj\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\alexj\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
