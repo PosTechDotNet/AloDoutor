@@ -1,0 +1,15 @@
+C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDoutor\AloDoutor.Infra\bin\Debug\net7.0\AloDoutor.Infra.deps.json
+C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDoutor\AloDoutor.Infra\bin\Debug\net7.0\AloDoutor.Infra.dll
+C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDoutor\AloDoutor.Infra\bin\Debug\net7.0\AloDoutor.Infra.pdb
+C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDoutor\AloDoutor.Infra\bin\Debug\net7.0\AloDoutor.Domain.dll
+C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDoutor\AloDoutor.Infra\bin\Debug\net7.0\AloDoutor.Domain.pdb
+C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDoutor\AloDoutor.Infra\obj\Debug\net7.0\AloDoutor.Infra.csproj.AssemblyReference.cache
+C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDoutor\AloDoutor.Infra\obj\Debug\net7.0\AloDoutor.Infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDoutor\AloDoutor.Infra\obj\Debug\net7.0\AloDoutor.Infra.AssemblyInfoInputs.cache
+C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDoutor\AloDoutor.Infra\obj\Debug\net7.0\AloDoutor.Infra.AssemblyInfo.cs
+C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDoutor\AloDoutor.Infra\obj\Debug\net7.0\AloDoutor.Infra.csproj.CoreCompileInputs.cache
+C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDoutor\AloDoutor.Infra\obj\Debug\net7.0\AloDoutor.Infra.csproj.CopyComplete
+C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDoutor\AloDoutor.Infra\obj\Debug\net7.0\AloDoutor.Infra.dll
+C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDoutor\AloDoutor.Infra\obj\Debug\net7.0\refint\AloDoutor.Infra.dll
+C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDoutor\AloDoutor.Infra\obj\Debug\net7.0\AloDoutor.Infra.pdb
+C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDoutor\AloDoutor.Infra\obj\Debug\net7.0\ref\AloDoutor.Infra.dll

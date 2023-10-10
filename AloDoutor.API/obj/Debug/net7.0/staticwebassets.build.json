@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "tVA47z8NVkhSXipZfJbJVBEjJVgR0sgGWPVirxsU+5U=",
+  "Source": "AloDoutor.Api",
+  "BasePath": "_content/AloDoutor.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

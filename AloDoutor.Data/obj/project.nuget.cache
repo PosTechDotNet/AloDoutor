@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "X6BtAhng0aN8YSB4J/aBHGtBiovs+WQ01AS7IAtBUayX/YROBZQCHESJX6vciYxoomy5ftyZkKq1JEe69ZSQgw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\alexj\\OneDrive\\Documentos\\Fiap\\Modulo 01\\Tech Challenge\\AloDoutor\\AloDoutor.Data\\AloDoutor.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\alexj\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512"
+  ],
+  "logs": []
+}
