@@ -1,0 +1,68 @@
+# Ignorar arquivos e diretórios gerados pelo Visual Studio
+.vscode/
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.log
+*.vscode
+*.vscode-test
+*.sln.docstates
+
+# Ignorar diretórios e arquivos específicos
+[Tt]est[Rr]esult*/
+[Bb]in/
+[Oo]bj/
+[Dd]ebug*/
+[Rr]elease*/
+[Ll]og*/
+
+# Ignorar arquivos de configuração do Visual Studio
+*.suo
+*.user
+*.sln.docstates
+
+# Ignorar arquivos temporários
+[Tt]humbs.db
+[Dd]esktop.ini
+*~
+*.dbmdl
+
+# Ignorar arquivos de saída de build
+*.dll
+*.exe
+*.pdb
+*.dll.config
+*.exe.config
+
+# Ignorar arquivos de publicação
+_PublishedWebsites/
+publish/
+*.publish.xml
+
+# Ignorar arquivos do projeto de depuração
+*.swp
+*.[Cc]ache
+*.bak
+*.[Pp]ublish.xml
+*.resharper
+*.DotSettings.user
+
+# Ignorar diretórios de pacotes NuGet
+packages/
+
+# Ignorar arquivos do Rider
+.idea/
+
+# Ignorar arquivos do Rider
+.idea/
+*.sln.iml
+
+# Ignorar arquivos de log
+*.log
+*.log.*
+
+# Ignorar arquivos de análise de código
+*.opendb
