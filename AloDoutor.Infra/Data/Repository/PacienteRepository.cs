@@ -14,6 +14,11 @@ namespace AloDoutor.Infra.Data.Repository
     {
         public PacienteRepository(MeuDbContext context) : base(context) { }
 
+        public async Task<Paciente> ObterPacientePorCPF(string cpf)
+        {
+            return await DbSet.FirstOrDefaultAsync<Paciente>(p => p.Cpf == cpf);
+        }
+
         public async Task<bool> VerificarAgendaLivrePaciente(Guid idPaciente, DateTime dataAtendimento)
         {
             var agenda = await DbSet.FirstOrDefaultAsync(e => e.Id == idPaciente && e.Agendamentos.Any(a => a.DataHoraAtendimento.Equals(dataAtendimento) && a.StatusAgendamento == StatusAgendamento.Ativo));

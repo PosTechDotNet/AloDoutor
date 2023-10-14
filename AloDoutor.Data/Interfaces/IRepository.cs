@@ -10,12 +10,12 @@ namespace AloDoutor.Domain.Interfaces
 {
     public interface IRepository<TEntity> : IDisposable where TEntity : Entidade
     {
-        void Adicionar(TEntity entity);
+        Task Adicionar(TEntity entity);
         Task<TEntity> ObterPorId(Guid id);
         Task<List<TEntity>> ObterTodos();
-        void Atualizar(TEntity entity);
-        void Remover(TEntity entity);
-    //    Task<int> SaveChanges();
+        Task Atualizar(TEntity entity);
+        Task Remover(TEntity entity);
+        Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicate);
         IUnitOfWork UnitOfWork { get; }
     }
 }

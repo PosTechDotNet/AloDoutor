@@ -8,13 +8,13 @@ namespace AloDoutor.Domain.Entity
 {
     public class Paciente: Entidade
     {
-        public string Nome { get; set; }
-        public string Cpf { get; set; }
-        public string Cep { get; set; }
-        public string Endereco { get; set; }
-        public string Estado { get; set; }
-        public string Idade { get; set; }
-        public string Telefone { get; set; }
+        public string Nome { get; private set; }
+        public string Cpf { get; private set; }
+        public string Cep { get; private set; }
+        public string Endereco { get; private set; }
+        public string Estado { get; private set; }
+        public string Idade { get; private set; }
+        public string Telefone { get; private set; }
         public IEnumerable<Agendamento>? Agendamentos { get; private set; }
     }
 }

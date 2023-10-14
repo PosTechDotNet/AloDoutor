@@ -9,6 +9,10 @@ namespace AloDoutor.Api.Configuration
         public AutomapperConfig()
         {
             CreateMap<AgendamentoDTO, Agendamento>();
+            CreateMap<PacienteDTO, Paciente>();
+            CreateMap<MedicoDTO, Medico>();
+            CreateMap<EspecialidadeDTO, Especialidade>();
+            CreateMap<EspecialidadeMedicoDTO, EspecialidadeMedico>();
         }
     }
 }

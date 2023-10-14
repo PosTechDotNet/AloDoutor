@@ -2,9 +2,9 @@
 {
     public class EspecialidadeMedico : Entidade
     {   
-        public Guid EspecialidadeId { get; set; }
-        public Guid MedicoId { get; set; }
-        public DateTime DataRegistro { get; set; }
+        public Guid EspecialidadeId { get; private set; }
+        public Guid MedicoId { get; private set; }
+        public DateTime DataRegistro { get; private set; }
 
         /* EF Relations */
         public Medico Medico { get; private set; }

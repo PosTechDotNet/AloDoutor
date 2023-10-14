@@ -30,13 +30,41 @@ namespace AloDoutor.Domain.Services
             if (!ValidationResult.IsValid)
                 return ValidationResult;   
             
-            _agendamentoRepository.Adicionar(agendamento);
+            await _agendamentoRepository.Adicionar(agendamento);
             return await PersistirDados(_agendamentoRepository.UnitOfWork);
         }
 
-        public Task<ValidationResult> Atualizar(Agendamento agendamento)
+        public async Task<ValidationResult> Reagendar(Guid id, DateTime data)
         {
-            throw new NotImplementedException();
+            var agendamento = await _agendamentoRepository.ObterPorId(id);
+
+            if (agendamento == null)
+            {
+                AdicionarErro("Agendamento não localizado!");
+                return ValidationResult;
+            }
+
+            if (agendamento.StatusAgendamento == StatusAgendamento.Cancelado)
+            {
+                AdicionarErro("Esse agendamento se encontra cancelado!");
+                return ValidationResult;
+            }            
+
+            if (DateTime.Now.Date.AddDays(2) > agendamento.DataHoraAtendimento.Date)
+            {
+                AdicionarErro("Reagendamneto deve ser realizado com pelo menos 2 dias de antecedencia!");
+                return ValidationResult;
+            }
+
+            agendamento.AlterarDataAgendamento(data);
+
+            await ValidarAgendamento(agendamento);
+
+            if (!ValidationResult.IsValid)
+                return ValidationResult;
+
+            await _agendamentoRepository.Atualizar(agendamento);
+            return await PersistirDados(_agendamentoRepository.UnitOfWork);
         }
 
         public async Task<ValidationResult> Cancelar(Guid id)

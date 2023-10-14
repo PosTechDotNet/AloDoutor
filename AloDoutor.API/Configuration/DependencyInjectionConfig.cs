@@ -20,6 +20,9 @@ namespace AloDoutor.Api.Configuration
             //Servivces
             services.AddScoped<IEspecialidadeService, EspecialidadeService>();
             services.AddScoped<IAgendamentoService, AgendamentoService>();
+            services.AddScoped<IPacienteService, PacienteService>();
+            services.AddScoped<IMedicoService, MedicoService>();
+            services.AddScoped<IEspecialidadeMedicoService, EspecialidadeMedicoService>();
 
 
             return services;

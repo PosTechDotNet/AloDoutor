@@ -9,6 +9,7 @@ namespace AloDoutor.Domain.Interfaces
 {
     public interface IPacienteRepository : IRepository<Paciente>
     {
+        Task<Paciente> ObterPacientePorCPF(string cpf);
         Task<bool> VerificarAgendaLivrePaciente(Guid idPaciente, DateTime dataAtendimento);
 
         Task<bool> VerificarPacienteCadastrado(Guid idPaciente);

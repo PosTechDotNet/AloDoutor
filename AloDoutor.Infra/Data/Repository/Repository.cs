@@ -24,12 +24,11 @@ namespace AloDoutor.Infra.Data.Repository
         }
 
         public IUnitOfWork UnitOfWork => Db;
-
        
         public async Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicate)
         {
             return await DbSet.AsNoTracking().Where(predicate).ToListAsync();
-        }
+        }        
 
         public virtual async Task<TEntity> ObterPorId(Guid id)
         {
@@ -41,17 +40,17 @@ namespace AloDoutor.Infra.Data.Repository
             return await DbSet.ToListAsync();
         }
 
-        public void Adicionar(TEntity entity)
+        public virtual async Task Adicionar(TEntity entity)
         {
             DbSet.Add(entity);
         }
 
-        public void Atualizar(TEntity entity)
+        public virtual async Task Atualizar(TEntity entity)
         {
             DbSet.Update(entity);
         }
 
-        public void Remover(TEntity entity)
+        public virtual async Task Remover(TEntity entity)
         {
             DbSet.Remove(entity);
         }

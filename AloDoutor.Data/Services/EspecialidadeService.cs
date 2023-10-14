@@ -15,15 +15,14 @@ namespace AloDoutor.Domain.Services
 
         public async Task<ValidationResult> Adicionar(Especialidade especialidade)
         {
-            var especialidadeCadastrada = await _especialidadeRepository.ObterPorNome(especialidade.Nome);
-
-            if(especialidadeCadastrada != null)
+            //Validar se já existe uma especialidade cadastrada com esse cpf
+            if (_especialidadeRepository.Buscar(p => p.Nome.ToLower() == especialidade.Nome.ToLower()).Result.Any())
             {
-                AdicionarErro("Essa especialidade já está cadastrada!");
+                AdicionarErro("Falha ao atualizar medico!");
                 return ValidationResult;
             }
 
-            _especialidadeRepository.Adicionar(especialidade);
+            await _especialidadeRepository.Adicionar(especialidade);
 
             return await PersistirDados(_especialidadeRepository.UnitOfWork);
             
@@ -31,16 +30,14 @@ namespace AloDoutor.Domain.Services
 
         public async Task<ValidationResult> Atualizar(Especialidade especialidade)
         {
-            var especialidadeCadastrada = await _especialidadeRepository.ObterPorId(especialidade.Id);
-
-            if(especialidadeCadastrada == null)
+            //Validar se a especialidade está cadastrado na base
+            if (!_especialidadeRepository.Buscar(p => p.Id == especialidade.Id).Result.Any())
             {
-                AdicionarErro("Especialidade não localizada!");
+                AdicionarErro("Especialidade Não localizada!");
                 return ValidationResult;
             }
-            especialidadeCadastrada.Nome = especialidade.Nome;
-            especialidadeCadastrada.Descricao = especialidade.Descricao;
-            _especialidadeRepository.Atualizar(especialidadeCadastrada);
+            
+            await _especialidadeRepository.Atualizar(especialidade);
 
             return await PersistirDados(_especialidadeRepository.UnitOfWork);
         }
@@ -55,7 +52,7 @@ namespace AloDoutor.Domain.Services
                 return ValidationResult;
             }
 
-            _especialidadeRepository.Remover(especialidadeCadastrada);
+            await _especialidadeRepository.Remover(especialidadeCadastrada);
 
             return await PersistirDados(_especialidadeRepository.UnitOfWork);
         }

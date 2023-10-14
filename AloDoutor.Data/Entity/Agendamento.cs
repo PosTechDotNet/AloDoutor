@@ -36,5 +36,10 @@ namespace AloDoutor.Domain.Entity
         {
             StatusAgendamento = StatusAgendamento.Cancelado;
         }
+
+        public void AlterarDataAgendamento(DateTime data)
+        {
+            DataHoraAtendimento = data;
+        }
     }
 }
