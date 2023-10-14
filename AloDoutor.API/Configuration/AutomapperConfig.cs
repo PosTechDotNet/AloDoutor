@@ -13,6 +13,7 @@ namespace AloDoutor.Api.Configuration
             CreateMap<MedicoDTO, Medico>();
             CreateMap<EspecialidadeDTO, Especialidade>();
             CreateMap<EspecialidadeMedicoDTO, EspecialidadeMedico>();
+
         }
     }
 }
