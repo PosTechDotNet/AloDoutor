@@ -1,7 +1,9 @@
 ﻿using AloDoutor.Api.Application.DTO;
+using AloDoutor.Api.Application.ViewModel;
 using AloDoutor.Api.Extentions;
 using AloDoutor.Domain.Entity;
 using AloDoutor.Domain.Interfaces;
+using AloDoutor.Infra.Data.Repository;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,6 +34,13 @@ namespace AloDoutor.Api.Controllers
         {
             return CustomResponse(await _especialidadeRepository.ObterPorId(id));
         }
+
+        [HttpGet("EspecialidadeMedicos/{idEspecialidade:guid}")]
+        public async Task<ActionResult> ObterMedicoEspecialidadePorIdMedico(Guid idEspecialidade)
+        {
+            return CustomResponse(_mapper.Map<EspecialidadeViewModel>(await _especialidadeRepository.ObterMedicosPorEspecialidadeId(idEspecialidade)));
+        }
+
 
         [HttpPost]
         public async Task<ActionResult> Adicionar(EspecialidadeDTO especialidadeDTO)

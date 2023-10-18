@@ -1,7 +1,9 @@
 ﻿using AloDoutor.Api.Application.DTO;
+using AloDoutor.Api.Application.ViewModel;
 using AloDoutor.Api.Extentions;
 using AloDoutor.Domain.Entity;
 using AloDoutor.Domain.Interfaces;
+using AloDoutor.Infra.Data.Repository;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,13 +26,25 @@ namespace AloDoutor.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> ObterTodos()
         {
-            return CustomResponse(await _medicoRepository.ObterTodos());
+            return CustomResponse(_mapper.Map<IEnumerable<MedicoViewModel>>(await _medicoRepository.ObterTodos()));
         }
 
         [HttpGet("{id:guid}")]
         public async Task<ActionResult> ObterPorId(Guid id)
         {
-            return CustomResponse(await _medicoRepository.ObterPorId(id));
+            return CustomResponse(_mapper.Map<MedicoViewModel>(await _medicoRepository.ObterPorId(id)));
+        }
+
+        [HttpGet("MedicoEspecialidades/{idMedico:guid}")]
+        public async Task<ActionResult> ObterMedicoEspecialidadePorIdMedico(Guid idMedico)
+        {
+            return CustomResponse(_mapper.Map<MedicoViewModel>(await _medicoRepository.ObterEspecialidadesPorIdMedico(idMedico)));
+        }
+
+        [HttpGet("Agendamento/{idMedico:guid}")]
+        public async Task<ActionResult> ObterAgendamentoPorMedico(Guid idMedico)
+        {
+            return CustomResponse(_mapper.Map<MedicoViewModel>(await _medicoRepository.ObterAgendamentosPorIdMedico(idMedico)));
         }
 
         [HttpPost]

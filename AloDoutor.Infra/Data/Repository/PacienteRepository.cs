@@ -14,6 +14,19 @@ namespace AloDoutor.Infra.Data.Repository
     {
         public PacienteRepository(MeuDbContext context) : base(context) { }
 
+        public async Task<Paciente> ObterAgendamentosPorIdPaciente(Guid idPaciente)
+        {
+            var paciente = await Db.Pacientes
+                .Include(p => p.Agendamentos) 
+                    .ThenInclude(a => a.EspecialidadeMedico) 
+                         .ThenInclude(em => em.Medico) 
+                    .ThenInclude(a => a.EspecialidadesMedicos) 
+                        .ThenInclude(e => e.Especialidade)  
+                .FirstOrDefaultAsync(p => p.Id == idPaciente);
+
+            return paciente;
+        }
+
         public async Task<Paciente> ObterPacientePorCPF(string cpf)
         {
             return await DbSet.FirstOrDefaultAsync<Paciente>(p => p.Cpf == cpf);

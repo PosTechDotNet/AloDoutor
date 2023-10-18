@@ -24,8 +24,4 @@
     <ProjectReference Include="..\AloDoutor.Infra\AloDoutor.Infra.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Application\ViewModel\" />
-  </ItemGroup>
-
 </Project>

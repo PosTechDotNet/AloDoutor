@@ -1,4 +1,5 @@
 ﻿using AloDoutor.Api.Application.DTO;
+using AloDoutor.Api.Application.ViewModel;
 using AloDoutor.Api.Extentions;
 using AloDoutor.Domain.Entity;
 using AloDoutor.Domain.Interfaces;
@@ -33,6 +34,12 @@ namespace AloDoutor.Api.Controllers
         public async Task<ActionResult> ObterPorId(Guid id)
         {
             return CustomResponse(await _pacienteRepository.ObterPorId(id));
+        }
+
+        [HttpGet("Agendamento/{idPaciente:guid}")]
+        public async Task<ActionResult> ObterAgendamentoPorPaciente(Guid idPaciente)
+        {
+            return CustomResponse(_mapper.Map<PacienteViewModel>(await _pacienteRepository.ObterAgendamentosPorIdPaciente(idPaciente)));
         }
 
         [HttpPost]

@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alexj\\OneDrive\\Documentos\\Fiap\\Modulo 01\\Tech Challenge\\AloDoutor\\AloDoutor.Data\\AloDoutor.Domain.csproj": {}
+    "C:\\Users\\alexj\\OneDrive\\Documentos\\Fiap\\Modulo 01\\Tech Challenge\\AloDOutor\\AloDoutor.Data\\AloDoutor.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alexj\\OneDrive\\Documentos\\Fiap\\Modulo 01\\Tech Challenge\\AloDoutor\\AloDoutor.Data\\AloDoutor.Domain.csproj": {
+    "C:\\Users\\alexj\\OneDrive\\Documentos\\Fiap\\Modulo 01\\Tech Challenge\\AloDOutor\\AloDoutor.Data\\AloDoutor.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alexj\\OneDrive\\Documentos\\Fiap\\Modulo 01\\Tech Challenge\\AloDoutor\\AloDoutor.Data\\AloDoutor.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\alexj\\OneDrive\\Documentos\\Fiap\\Modulo 01\\Tech Challenge\\AloDOutor\\AloDoutor.Data\\AloDoutor.Domain.csproj",
         "projectName": "AloDoutor.Domain",
-        "projectPath": "C:\\Users\\alexj\\OneDrive\\Documentos\\Fiap\\Modulo 01\\Tech Challenge\\AloDoutor\\AloDoutor.Data\\AloDoutor.Domain.csproj",
+        "projectPath": "C:\\Users\\alexj\\OneDrive\\Documentos\\Fiap\\Modulo 01\\Tech Challenge\\AloDOutor\\AloDoutor.Data\\AloDoutor.Domain.csproj",
         "packagesPath": "C:\\Users\\alexj\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\alexj\\OneDrive\\Documentos\\Fiap\\Modulo 01\\Tech Challenge\\AloDoutor\\AloDoutor.Data\\obj\\",
         "projectStyle": "PackageReference",

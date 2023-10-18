@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "a+JU4eBmvySFlftCV/d0MwyQW+okApbgMYpdnnwsSdRaILSN4CX7IUGCcdgIIhQhSCKJovmT0mjYmDEPNfXE3A==",
+  "dgSpecHash": "igah1EBpx8SoEg95O/cKf/y5vOdX2BF7SZLi1BMlikb7ZZzYuuDFO2ik/ePPyMJqyOW6LclAFsZdWlNpa8MTCQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alexj\\OneDrive\\Documentos\\Fiap\\Modulo 01\\Tech Challenge\\AloDoutor\\AloDoutor.Infra\\AloDoutor.Infra.csproj",
+  "projectFilePath": "C:\\Users\\alexj\\OneDrive\\Documentos\\Fiap\\Modulo 01\\Tech Challenge\\AloDOutor\\AloDoutor.Infra\\AloDoutor.Infra.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alexj\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\alexj\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

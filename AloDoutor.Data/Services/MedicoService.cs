@@ -51,6 +51,7 @@ namespace AloDoutor.Domain.Services
 
 
         }
+     
 
         public async Task<ValidationResult> Remover(Guid id)
         {

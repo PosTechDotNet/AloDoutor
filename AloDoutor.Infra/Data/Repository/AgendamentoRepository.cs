@@ -14,6 +14,19 @@ namespace AloDoutor.Infra.Data.Repository
     {
         public AgendamentoRepository(MeuDbContext db) : base(db)
         {
-        }       
+        }
+
+        public async Task<IEnumerable<Agendamento>> ObterAgendamentosPorIStatus(int status)
+        {
+            StatusAgendamento statusDesejado = (StatusAgendamento)status;
+
+            return await Db.Agendamentos
+                .Include(m => m.Paciente)
+                 .Include(e => e.EspecialidadeMedico)
+                    .ThenInclude(e => e.Especialidade)
+                   .ThenInclude(m => m.EspecialidadeMedicos)
+                       .ThenInclude(p => p.Medico)
+                .Where(a =>  (a.StatusAgendamento == statusDesejado || status == 0)).ToListAsync();
+        }
     }
 }

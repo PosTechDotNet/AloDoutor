@@ -14,6 +14,14 @@ namespace AloDoutor.Infra.Data.Repository
     {
         public EspecialidadeRepository(MeuDbContext context) : base(context) { }
 
+        public async Task<Especialidade> ObterMedicosPorEspecialidadeId(Guid idEspecialidade)
+        {
+            return await Db.Especialidades.AsNoTracking()
+                 .Include(m => m.EspecialidadeMedicos)
+                 .ThenInclude(e => e.Medico)
+                 .FirstOrDefaultAsync(m => m.Id == idEspecialidade);
+        }
+
         public async  Task<Especialidade> ObterPorNome(string nome)
         {
             return await Db.Especialidades.AsNoTracking()
