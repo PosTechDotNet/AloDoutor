@@ -9,7 +9,7 @@ namespace AloDoutor.Api.Configuration
         public static IServiceCollection AddApiConfig(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<MeuDbContext>(options =>
-               options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+               options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));           
 
             services.AddControllers();
 
@@ -28,10 +28,17 @@ namespace AloDoutor.Api.Configuration
 
         public static void UseApiConfiguration(this IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+            if (env.IsDevelopment() || env.IsStaging())
             {
                 app.UseDeveloperExceptionPage();
+
+                using (var scope = app.ApplicationServices.CreateScope())
+                {
+                    var dbContext = scope.ServiceProvider.GetRequiredService<MeuDbContext>();
+                    dbContext.Database.Migrate();
+                }
             }
+
 
             app.UseHttpsRedirection();
 

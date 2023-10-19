@@ -1,0 +1,33 @@
+﻿version: "3.7"
+
+services:
+  sql-server:
+    container_name: sql-server
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    restart: always
+    ports:
+      - "1433:1433"
+    environment:
+        MSSQL_SA_PASSWORD: "P@ssw0rd"
+        ACCEPT_EULA: "Y"
+        MSSQL_PID: "Developer"
+    networks:
+      - "alo-doutor-net"
+  
+  alodoutor-api:
+    container_name: alodoutor
+    image: fiappostech/alodoutor
+    build: .    
+    restart: always
+    ports:
+      - "9090:80"
+    environment:
+      aspnetcore_environment: Staging      
+    depends_on:
+        - sql-server        
+    networks:
+      - "alo-doutor-net"
+  
+networks:
+  alo-doutor-net:
+    driver: bridge
