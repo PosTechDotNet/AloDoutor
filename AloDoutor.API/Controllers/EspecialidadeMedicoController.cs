@@ -1,9 +1,7 @@
 ﻿using AloDoutor.Api.Application.DTO;
-using AloDoutor.Api.Application.ViewModel;
-using AloDoutor.Api.Extentions;
+using AloDoutor.Core.Controllers;
 using AloDoutor.Domain.Entity;
 using AloDoutor.Domain.Interfaces;
-using AloDoutor.Infra.Data.Repository;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 

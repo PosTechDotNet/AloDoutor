@@ -21,7 +21,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AloDoutor.Core\AloDoutor.Core.csproj" />
     <ProjectReference Include="..\AloDoutor.Infra\AloDoutor.Infra.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Extentions\" />
   </ItemGroup>
 
 </Project>

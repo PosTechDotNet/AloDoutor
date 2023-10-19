@@ -1,8 +1,9 @@
-﻿using FluentValidation.Results;
+﻿using AloDoutor.Core.Comunication;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace AloDoutor.Api.Extentions
+namespace AloDoutor.Core.Controllers
 {
     [ApiController]
     public abstract class MainController : Controller

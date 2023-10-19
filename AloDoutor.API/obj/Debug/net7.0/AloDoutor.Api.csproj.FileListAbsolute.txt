@@ -162,3 +162,9 @@ C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDoutor\AloDo
 C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDoutor\AloDoutor.API\obj\Debug\net7.0\AloDoutor.Api.pdb
 C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDoutor\AloDoutor.API\obj\Debug\net7.0\AloDoutor.Api.genruntimeconfig.cache
 C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDoutor\AloDoutor.API\obj\Debug\net7.0\ref\AloDoutor.Api.dll
+C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDOutor\AloDoutor.API\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDOutor\AloDoutor.API\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDOutor\AloDoutor.API\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
+C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDOutor\AloDoutor.API\bin\Debug\net7.0\AloDoutor.Core.dll
+C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDOutor\AloDoutor.API\bin\Debug\net7.0\AloDoutor.Core.pdb
+C:\Users\alexj\OneDrive\Documentos\Fiap\Modulo 01\Tech Challenge\AloDOutor\AloDoutor.API\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

@@ -1,4 +1,4 @@
-﻿namespace AloDoutor.Api.Extentions
+﻿namespace AloDoutor.Core.Comunication
 {
     public class ResponseResult
     {
