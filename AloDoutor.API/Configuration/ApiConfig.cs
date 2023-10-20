@@ -1,4 +1,5 @@
-﻿using AloDoutor.Infra.Data.Context;
+﻿using AloDoutor.Core.Identidade;
+using AloDoutor.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 
@@ -43,6 +44,8 @@ namespace AloDoutor.Api.Configuration
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthConfiguration();
 
             app.UseCors("Total");           
 

@@ -1,4 +1,6 @@
 using AloDoutor.Api.Configuration;
+using AloDoutor.Core.Identidade;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,8 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddSwaggerConfiguration();
 
 builder.Services.AddApiConfig(builder.Configuration);
+
+builder.Services.AddJwtConfiguration(builder.Configuration);
 
 builder.Services.ResolveDependencies();
 
