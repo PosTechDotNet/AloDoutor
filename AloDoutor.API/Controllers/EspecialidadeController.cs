@@ -5,10 +5,12 @@ using AloDoutor.Domain.Entity;
 using AloDoutor.Domain.Interfaces;
 using AloDoutor.Infra.Data.Repository;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AloDoutor.Api.Controllers
 {
+    [Authorize]
     [Route("api/especialidade")]
     public class EspecialidadeController : MainController<EspecialidadeController>
     {

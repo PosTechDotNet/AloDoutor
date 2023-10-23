@@ -3,11 +3,12 @@ using AloDoutor.Core.Controllers;
 using AloDoutor.Domain.Entity;
 using AloDoutor.Domain.Interfaces;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AloDoutor.Api.Controllers
 {
-
+    [Authorize]
     [Route("api/especialidade-medico")]
     public class EspecialidadeMedicoController : MainController<EspecialidadeMedicoController>
     {

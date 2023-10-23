@@ -1,4 +1,5 @@
-﻿using AloDoutor.Domain.Interfaces;
+﻿using AloDoutor.Core.Usuario;
+using AloDoutor.Domain.Interfaces;
 using AloDoutor.Domain.Services;
 using AloDoutor.Infra.Data.Context;
 using AloDoutor.Infra.Data.Repository;
@@ -9,6 +10,10 @@ namespace AloDoutor.Api.Configuration
     {
         public static IServiceCollection ResolveDependencies(this IServiceCollection services)
         {
+            //Autenticação
+            services.AddScoped<IAspNetUser, AspNetUser>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             //Repository
             services.AddScoped<MeuDbContext>();
             services.AddScoped<IEspecialidadeMedicoRepository, EspecialidadeMedicoRepository>();

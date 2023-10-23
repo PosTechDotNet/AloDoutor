@@ -1,4 +1,6 @@
 using AloDoutor.Api.Configuration;
+using AloDoutor.Core.Identidade;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +17,8 @@ builder.Services.AddSerilogConfiguration(builder.Configuration, builder.Environm
 builder.Services.AddSwaggerConfiguration();
 
 builder.Services.AddApiConfig(builder.Configuration);
+
+builder.Services.AddJwtConfiguration(builder.Configuration);
 
 builder.Services.ResolveDependencies();
 
