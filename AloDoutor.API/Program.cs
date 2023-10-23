@@ -10,6 +10,8 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+builder.Services.AddSerilogConfiguration(builder.Configuration, builder.Environment);
+
 builder.Services.AddSwaggerConfiguration();
 
 builder.Services.AddApiConfig(builder.Configuration);
