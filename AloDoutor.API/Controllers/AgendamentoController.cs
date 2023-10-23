@@ -1,6 +1,7 @@
 ﻿using AloDoutor.Api.Application.DTO;
 using AloDoutor.Api.Application.ViewModel;
 using AloDoutor.Core.Controllers;
+using AloDoutor.Core.Usuario;
 using AloDoutor.Domain.Entity;
 using AloDoutor.Domain.Interfaces;
 using AutoMapper;
@@ -13,15 +14,17 @@ namespace AloDoutor.Api.Controllers
     [Route("api")]
     public class AgendamentoController : MainController
     {
+        private readonly IAspNetUser _user;
         private readonly IAgendamentoService _agendamentoService;
         private readonly IAgendamentoRepository _agendamentoRepository;
         private readonly IMapper _mapper;
 
-        public AgendamentoController(IAgendamentoService agendamentoService, IMapper mapper, IAgendamentoRepository agendamentoRepository)
+        public AgendamentoController(IAgendamentoService agendamentoService, IMapper mapper, IAgendamentoRepository agendamentoRepository, IAspNetUser user)
         {
             _agendamentoService = agendamentoService;
             _mapper = mapper;
             _agendamentoRepository = agendamentoRepository;
+            _user = user;
         }
 
         [HttpGet]

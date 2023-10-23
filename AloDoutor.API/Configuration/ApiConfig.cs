@@ -36,7 +36,7 @@ namespace AloDoutor.Api.Configuration
                 using (var scope = app.ApplicationServices.CreateScope())
                 {
                     var dbContext = scope.ServiceProvider.GetRequiredService<MeuDbContext>();
-                    dbContext.Database.Migrate();
+                   // dbContext.Database.Migrate();
                 }
             }
 
