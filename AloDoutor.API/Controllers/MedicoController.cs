@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AloDoutor.Api.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("Medico")]
     public class MedicoController :  MainController<MedicoController>
     {
@@ -57,6 +57,7 @@ namespace AloDoutor.Api.Controllers
         [HttpPost]
         public async Task<ActionResult> Adicionar(MedicoDTO medicoDTO)
         {
+            //verificar o custom response para created
             _logger.LogInformation("Endpoint para cadastramento de medico.");
             return CustomResponse(await _medicoService.Adicionar(_mapper.Map<Medico>(medicoDTO)));
         }
