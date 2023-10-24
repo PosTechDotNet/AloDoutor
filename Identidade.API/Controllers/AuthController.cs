@@ -6,20 +6,22 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Identidade.API.Controllers
 {
-    public class AuthController : MainController
+    public class AuthController : MainController<AuthController>
     {
 
         private readonly AuthenticationService _authenticationService;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly ILogger _logger;
 
         public AuthController(AuthenticationService authenticationService,
              UserManager<IdentityUser> userManager,
-             SignInManager<IdentityUser> signInManager)
+             SignInManager<IdentityUser> signInManager, ILogger<AuthController> logger) : base(logger)
         {
             _signInManager = signInManager;
             _authenticationService = authenticationService;
             _userManager = userManager;
+            _logger = logger;
         }
 
         [HttpPost("nova-conta")]
