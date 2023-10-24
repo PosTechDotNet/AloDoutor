@@ -59,7 +59,8 @@ namespace AloDoutor.Api.Controllers
         {
             //verificar o custom response para created
             _logger.LogInformation("Endpoint para cadastramento de medico.");
-            return CustomResponse(await _medicoService.Adicionar(_mapper.Map<Medico>(medicoDTO)));
+            var validation = await _medicoService.Adicionar(_mapper.Map<Medico>(medicoDTO));
+           return validation.IsValid ?  Created("", medicoDTO) :  CustomResponse(validation);         
         }
 
         [HttpPut()]

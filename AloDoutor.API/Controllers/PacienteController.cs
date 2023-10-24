@@ -3,6 +3,7 @@ using AloDoutor.Api.Application.ViewModel;
 using AloDoutor.Core.Controllers;
 using AloDoutor.Domain.Entity;
 using AloDoutor.Domain.Interfaces;
+using AloDoutor.Domain.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -52,7 +53,9 @@ namespace AloDoutor.Api.Controllers
         public async Task<ActionResult> Adicionar(PacienteDTO pacienteDTO)
         {
             _logger.LogInformation("Endpoint para cadastramento de paciente.");
-            return CustomResponse(await _pacienteService.Adicionar(_mapper.Map<Paciente>(pacienteDTO)));
+
+            var validation = await _pacienteService.Adicionar(_mapper.Map<Paciente>(pacienteDTO));
+            return validation.IsValid ? Created("", pacienteDTO) : CustomResponse(validation);
         }
 
         [HttpPut]
