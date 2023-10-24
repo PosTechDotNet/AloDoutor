@@ -7,6 +7,7 @@ using AloDoutor.Domain.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Model;
 
 namespace AloDoutor.Api.Controllers
 {
@@ -55,7 +56,8 @@ namespace AloDoutor.Api.Controllers
         public async Task<ActionResult> Adicionar(AgendamentoDTO agendamentoDTO)
         {
             _logger.LogInformation("Endpoint para cadastramento de agendamento.");
-            return CustomResponse(await _agendamentoService.Adicionar(_mapper.Map<Agendamento>(agendamentoDTO)));
+            var validation = await _agendamentoService.Adicionar(_mapper.Map<Agendamento>(agendamentoDTO));            
+            return validation.IsValid ? Created("", agendamentoDTO) : CustomResponse(validation);
         }
 
         [HttpPut("Reagendar/{id:guid}/{data:datetime}")]

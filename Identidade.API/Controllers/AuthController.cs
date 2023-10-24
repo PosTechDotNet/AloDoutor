@@ -1,11 +1,15 @@
 ﻿using AloDoutor.Core.Controllers;
+using AloDoutor.Core.Identidade;
 using Identidade.API.Models;
 using Identidade.API.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace Identidade.API.Controllers
 {
+    [Authorize]
     public class AuthController : MainController<AuthController>
     {
 
@@ -23,7 +27,7 @@ namespace Identidade.API.Controllers
             _userManager = userManager;
             _logger = logger;
         }
-
+        [ClaimsAuthorize("Administrador", "Cadastrar")]
         [HttpPost("nova-conta")]
         public async Task<ActionResult> Registrar(UsuarioRegistro usuarioRegistro)
         {
@@ -40,6 +44,13 @@ namespace Identidade.API.Controllers
 
             if (result.Succeeded)
             {
+                //Verificar se o usuário cadastrado é administrador
+                if (usuarioRegistro.isAdmin)
+                {
+                    var claim = new Claim("Administrador", "Cadastrar");
+
+                    await _userManager.AddClaimAsync(user, claim);
+                }
                 return CustomResponse(await _authenticationService.GerarJwt(usuarioRegistro.Email));
             }
 
@@ -50,6 +61,7 @@ namespace Identidade.API.Controllers
 
             return CustomResponse();
         }
+        [AllowAnonymous]
         [HttpPost("autenticar")]
         public async Task<ActionResult> Login(UsuarioLogin usuarioLogin)
         {
