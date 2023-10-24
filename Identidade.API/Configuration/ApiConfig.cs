@@ -2,7 +2,6 @@
 using Identidade.API.Services;
 using AloDoutor.Core.Identidade;
 using Microsoft.EntityFrameworkCore;
-using AloDoutor.Infra.Data.Context;
 
 namespace Identidade.API.Configuration
 {
@@ -37,7 +36,7 @@ namespace Identidade.API.Configuration
 
                 using (var scope = app.ApplicationServices.CreateScope())
                 {
-                    var dbContext = scope.ServiceProvider.GetRequiredService<MeuDbContext>();
+                    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
                     dbContext.Database.Migrate();
                 }
             }
