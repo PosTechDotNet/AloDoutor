@@ -2,6 +2,7 @@
 using Identidade.API.Services;
 using AloDoutor.Core.Identidade;
 using Microsoft.EntityFrameworkCore;
+using AloDoutor.Infra.Data.Context;
 
 namespace Identidade.API.Configuration
 {
@@ -30,9 +31,15 @@ namespace Identidade.API.Configuration
 
         public static IApplicationBuilder UseApiConfiguration(this IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+            if (env.IsDevelopment() || env.IsStaging())
             {
                 app.UseDeveloperExceptionPage();
+
+                using (var scope = app.ApplicationServices.CreateScope())
+                {
+                    var dbContext = scope.ServiceProvider.GetRequiredService<MeuDbContext>();
+                    dbContext.Database.Migrate();
+                }
             }
 
             app.UseHttpsRedirection();
