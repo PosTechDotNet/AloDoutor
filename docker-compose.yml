@@ -1,7 +1,7 @@
 ﻿version: "3.7"
 
 services:
-    sql-server:
+    sql-server-alodoutor:
         container_name: sql-server
         image: mcr.microsoft.com/mssql/server:2022-latest
         restart: always
@@ -14,7 +14,7 @@ services:
         networks:
           - "alo-doutor-net"
 
-    identidade-api:
+    identidade-api-alodoutor:
         container_name: identidade
         image: fiappostech/identidade
         build: 
@@ -26,7 +26,7 @@ services:
         environment:
             aspnetcore_environment: Staging      
         depends_on:
-            - sql-server        
+            - sql-server-alodoutor        
         networks:
             - "alo-doutor-net"
   
@@ -42,8 +42,8 @@ services:
         environment:
             aspnetcore_environment: Staging      
         depends_on:
-            - sql-server
-            - identidade-api 
+            - sql-server-alodoutor
+            - identidade-api-alodoutor 
         networks:
             - "alo-doutor-net"
   
