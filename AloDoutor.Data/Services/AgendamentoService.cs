@@ -13,10 +13,10 @@ namespace AloDoutor.Domain.Services
     {
         private readonly IAgendamentoRepository _agendamentoRepository;
         private readonly IEspecialidadeMedicoRepository _especialidadeMedicoRepository;
-        private readonly IPacienteRepository _pacienteRepository;
+        private readonly IPacienteRepository _pacienteRepository; 
 
-
-        public AgendamentoService(IAgendamentoRepository agendamentoRepository, IEspecialidadeMedicoRepository especialidadeMedicoRepository, IPacienteRepository pacienteRepository)
+        public AgendamentoService(IAgendamentoRepository agendamentoRepository, 
+            IEspecialidadeMedicoRepository especialidadeMedicoRepository, IPacienteRepository pacienteRepository)
         {
             _agendamentoRepository = agendamentoRepository;
             _especialidadeMedicoRepository = especialidadeMedicoRepository;

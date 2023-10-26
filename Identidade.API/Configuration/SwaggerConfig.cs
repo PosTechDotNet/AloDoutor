@@ -1,4 +1,5 @@
 ﻿using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 namespace Identidade.API.Configuration
 {
@@ -14,6 +15,9 @@ namespace Identidade.API.Configuration
                     Description = "Esta API é para gerenciar as permissões de acesso ao sistema",
                     Contact = new OpenApiContact() { Name = "Alo Doutor", Email = "postechdotnet@gmail.com " }
                 });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
 
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
