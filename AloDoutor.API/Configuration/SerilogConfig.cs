@@ -9,7 +9,8 @@ namespace AloDoutor.Api.Configuration
 {
     public static class SerilogConfig
     {
-        public static void AddSerilogConfiguration(this IServiceCollection services, IConfiguration configuration, IHostEnvironment environment)
+        public static void AddSerilogConfiguration(this IServiceCollection services, IConfiguration configuration,
+            IHostEnvironment environment)
         {
             var logConfig = new LoggerConfiguration()
                 .MinimumLevel.Debug()

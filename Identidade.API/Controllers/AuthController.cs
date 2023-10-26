@@ -24,11 +24,16 @@ namespace Identidade.API.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Registra um novo usuário.
+        /// </summary>
+        /// <param name="usuarioRegistro">Os dados de registro do usuário.</param>
+        /// <returns>Um token JWT se o registro for bem-sucedido ou erros de validação em caso de falha.</returns>
         [HttpPost("nova-conta")]
         public async Task<ActionResult> Registrar(UsuarioRegistro usuarioRegistro)
         {
+            _logger.LogInformation("Endpoint de registro de usuario");
             if (!ModelState.IsValid) return CustomResponse(ModelState);
-
             var user = new IdentityUser
             {
                 UserName = usuarioRegistro.Email,
@@ -50,13 +55,19 @@ namespace Identidade.API.Controllers
 
             return CustomResponse();
         }
+
+        /// <summary>
+        /// Autentica um usuário.
+        /// </summary>
+        /// <param name="usuarioLogin">Os dados de login do usuário.</param>
+        /// <returns>Um token JWT se a autenticação for bem-sucedida ou erros em caso de falha.</returns>
         [HttpPost("autenticar")]
         public async Task<ActionResult> Login(UsuarioLogin usuarioLogin)
         {
+            _logger.LogInformation("Endpoint para login de usuario");
             if (!ModelState.IsValid) return CustomResponse(ModelState);
-
             var result = await _signInManager.PasswordSignInAsync(usuarioLogin.Email, usuarioLogin.Senha,
-               false, true);
+                false, true);
 
             if (result.Succeeded)
             {
