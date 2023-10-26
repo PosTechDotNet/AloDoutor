@@ -20,6 +20,9 @@ namespace Identidade.API.Models
 
         [Compare("Senha", ErrorMessage = "As senhas não conferem.")]
         public string SenhaConfirmacao { get; set; }
+
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
+        public bool isAdmin { get; set; } = false;
     }
 
     public class UsuarioLogin
