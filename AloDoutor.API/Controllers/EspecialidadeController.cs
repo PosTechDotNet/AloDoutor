@@ -3,6 +3,7 @@ using AloDoutor.Api.Application.ViewModel;
 using AloDoutor.Core.Controllers;
 using AloDoutor.Domain.Entity;
 using AloDoutor.Domain.Interfaces;
+using AloDoutor.Domain.Services;
 using AloDoutor.Infra.Data.Repository;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
@@ -71,8 +72,10 @@ namespace AloDoutor.Api.Controllers
         [HttpPost]
         public async Task<ActionResult> Adicionar(EspecialidadeDTO especialidadeDTO)
         {
-            _logger.LogInformation("Endpoint para cadastramento de especialidade.");
-            return CustomResponse(await _especialidadeService.Adicionar(_mapper.Map<Especialidade>(especialidadeDTO)));
+            _logger.LogInformation("Endpoint para cadastramento de especialidade.");            
+
+            var validation =  await _especialidadeService.Adicionar(_mapper.Map<Especialidade>(especialidadeDTO));
+            return validation.IsValid ? Created("", especialidadeDTO) : CustomResponse(validation);
         }
 
         /// <summary>
