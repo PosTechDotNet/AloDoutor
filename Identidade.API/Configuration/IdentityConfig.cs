@@ -32,7 +32,7 @@ namespace Identidade.API.Configuration
             var userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
 
             // Verifique se o usuário já existe
-            var user = await userManager.FindByNameAsync("postechdotnet@gmail.com ");
+            var user = await userManager.FindByNameAsync("postechdotnet@gmail.com");
 
             if (user == null)
             {
