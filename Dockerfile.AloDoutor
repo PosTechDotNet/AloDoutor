@@ -7,11 +7,11 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["/AloDoutor.API/AloDoutor.Api.csproj", "AloDoutor.API/"]
-COPY ["/AloDoutor.Core/AloDoutor.Core.csproj", "AloDoutor.Core/"]
-COPY ["/AloDoutor.Infra/AloDoutor.Infra.csproj", "AloDoutor.Infra/"]
-COPY ["/AloDoutor.Data/AloDoutor.Domain.csproj", "AloDoutor.Data/"]
-RUN dotnet restore "AloDoutor.API\AloDoutor.Api.csproj"
+COPY ["AloDoutor.API/AloDoutor.Api.csproj", "AloDoutor.API/"]
+COPY ["AloDoutor.Core/AloDoutor.Core.csproj", "AloDoutor.Core/"]
+COPY ["AloDoutor.Infra/AloDoutor.Infra.csproj", "AloDoutor.Infra/"]
+COPY ["AloDoutor.Data/AloDoutor.Domain.csproj", "AloDoutor.Data/"]
+RUN dotnet restore "AloDoutor.API/AloDoutor.Api.csproj"
 COPY . .
 WORKDIR "/src/AloDoutor.API"
 RUN dotnet build "AloDoutor.Api.csproj" -c Release -o /app/build

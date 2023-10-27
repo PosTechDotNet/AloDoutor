@@ -13,10 +13,10 @@ namespace AloDoutor.Domain.Services
     {
         private readonly IAgendamentoRepository _agendamentoRepository;
         private readonly IEspecialidadeMedicoRepository _especialidadeMedicoRepository;
-        private readonly IPacienteRepository _pacienteRepository;
+        private readonly IPacienteRepository _pacienteRepository; 
 
-
-        public AgendamentoService(IAgendamentoRepository agendamentoRepository, IEspecialidadeMedicoRepository especialidadeMedicoRepository, IPacienteRepository pacienteRepository)
+        public AgendamentoService(IAgendamentoRepository agendamentoRepository, 
+            IEspecialidadeMedicoRepository especialidadeMedicoRepository, IPacienteRepository pacienteRepository)
         {
             _agendamentoRepository = agendamentoRepository;
             _especialidadeMedicoRepository = especialidadeMedicoRepository;
@@ -114,7 +114,7 @@ namespace AloDoutor.Domain.Services
 
             if (agendamento.DataHoraAtendimento.TimeOfDay < new TimeSpan(9, 0, 0) || agendamento.DataHoraAtendimento.TimeOfDay > new TimeSpan(18, 0, 0))
             {
-                AdicionarErro("Atendimento das 09:00 até as 19 horas!");
+                AdicionarErro("Atendimento das 09:00 até as 18 horas!");
                 return;
             }
 

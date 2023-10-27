@@ -1,4 +1,5 @@
 ﻿using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 namespace AloDoutor.Api.Configuration
 {
@@ -14,6 +15,10 @@ namespace AloDoutor.Api.Configuration
                     Description = "Esta API é Controle de Agendamentos de Consulta",
                     Contact = new OpenApiContact() { Name = "Alo Doutor", Email = "postechdotnet@gmail.com " }
                 });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile) ;
+                c.IncludeXmlComments(xmlPath);
+
 
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {

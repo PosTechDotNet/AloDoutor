@@ -1,6 +1,7 @@
-# Clínica Alo Doutor
+# Clínica Alô Doutor
 ## Índice
-- [Clínica Alo Doutor](#clínica-alo-doutor)
+- [Clínica Alo Doutor](#clínica-alô-doutor)
+  - [Sobre](#sobre) 
   - [Histórico da Clínica](#histórico-da-clínica)
   - [Solução](#solução)
   - [Como Executar o Projeto](#Como-executar-o-projeto)
@@ -13,6 +14,10 @@
   - [Screenshots da solução](#screenshots-da-solução)
   - [Tecnologias Utilizadas](#tecnologias-utilizadas-🛠️)
   - [Integrantes](#integrantes)
+
+
+## Sobre
+Este projeto faz parte do trabalho de conclusão da primeira fase da POSTECH FIAP de Arquitetura de Sistemas .Net com Azure.
 
 
 ## Histórico da Clínica
@@ -183,4 +188,8 @@ Erick Setti dos Santos | 351206 | https://github.com/ESettiCalculist
 Fábio da Silva Pereira | 351053 | https://github.com/fbiopereira
 Marcel da Silva Fonseca | 348885 |
 Richard Kendy Tanaka| 351234 | https://github.com/RichardKT88
+
+
+- [Levantamento de Requisitos](./documentacao/requisitos.md)
+- [Utilizando a Autenticação e Autorização](./documentacao/autenticacao.md)
 
