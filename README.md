@@ -1,10 +1,12 @@
 # Clínica Alô Doutor
 ## Índice
 - [Clínica Alo Doutor](#clínica-alô-doutor)
-  - [Sobre](#sobre) 
+    - [Sobre](#sobre) 
+    - [Integrantes](#integrantes)  
+    - [Tecnologias Utilizadas](#tecnologias-utilizadas-🛠️)  
+  - [Como Executar o Projeto](#como-executar-o-projeto)
   - [Histórico da Clínica](#histórico-da-clínica)
-  - [Solução](#solução)
-  - [Como Executar o Projeto](#Como-executar-o-projeto)
+  - [Solução](#solução)  
   - [DDD](#ddd)
     - [Domain Storytelling](#domain-storytelling)
     - [Domínios e Contextos Delimitados Identificados](#domínios-e-contextos-delimitados-identificados)
@@ -12,12 +14,73 @@
         - [Contextos Delimitados](#contextos-delimitados)
   - [Critérios de Aceite](#critérios-de-aceite)
   - [Screenshots da solução](#screenshots-da-solução)
-  - [Tecnologias Utilizadas](#tecnologias-utilizadas-🛠️)
-  - [Integrantes](#integrantes)
+
 
 
 ## Sobre
 Este projeto faz parte do trabalho de conclusão da primeira fase da POSTECH FIAP de Arquitetura de Sistemas .Net com Azure.
+
+## Integrantes
+
+| Nome | Matrícula | GitHub
+------------ | ------------- | -------------
+Alex Jussiani Junior | 350671 | https://github.com/AlexJussiani
+Erick Setti dos Santos | 351206 | https://github.com/ESettiCalculist
+Fábio da Silva Pereira | 351053 | https://github.com/fbiopereira
+Marcel da Silva Fonseca | 348885 |
+Richard Kendy Tanaka| 351234 | https://github.com/RichardKT88
+
+## Tecnologias Utilizadas 🛠️
+
+| Tecnologias | Uso
+------------ | -------------
+[C#](https://docs.microsoft.com/en-us/dotnet/csharp/) | Linguagem de Programação
+[.NET](https://dotnet.microsoft.com/) | Framework web
+[Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/) | Biblioteca para persistência de Dados (ORM)
+[Serilog](https://serilog.net/) | Captura de Logs
+[Visual Studio 2022](https://visualstudio.microsoft.com/pt-br/) | Editor de Código
+[Docker](https://www.docker.com/) | Criação de Containers
+
+## Como Executar o Projeto
+Inicializa o banco de dados e as APIs (É necessário ter o docker e o docker-compose instalados na máquina local):
+
+Existem duas opções para executar o projeto, utilizando o Docker ou executando localmente.
+
+#### Execução com Docker (recomendada):
+    
+    1- Se você estiver no Windows instale o [WSL](https://learn.microsoft.com/pt-br/windows/wsl/install)
+
+    2- Instale o [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+    
+    3- Clone o repositório
+    
+    4- No terminal vá até a pasta `/AloDoutor` e execute o comando `docker-compose up -d` para executar os containers das aplicações e do SQL Server
+    
+    5- Abra o navegador e acesse:
+        -  `http://localhost:9191/swagger` para a API de autenticação e autorização
+        -  `http://localhost:9090/swagger` para a API AloDoutor
+
+
+#### Execução local:
+
+    1- Clone o repositório
+
+    2- No terminal vá até a pasta `/AloDoutor` e execute o comando `dotnet restore` para restaurar as dependências do projeto
+    
+    3- Atualização da base de dados (este passo não é obrigatório pois a aplicação foi configurada para executar as migrations automaticamente, mas caso queira executar manualmente siga os passos abaixo):
+        - Execute o comando `dotnet tool install --global dotnet-ef`
+        - Vá para a pasta `/AloDoutor.Api`
+        - Execute o comando `dotnet ef database update`
+        - Vá para a pasta `/Identidade.Api`
+        - Execute novamente o comando `dotnet ef database update`
+    
+    4- Executando os projetos:
+        - Volte na pasta `/AloDoutor.Api` execute o comando `dotnet run` para executar o projeto
+        - Abra um novo terminal na pasta `/Identidade.Api` execute o comando `dotnet run` para executar o projeto
+        - Abra o navegador e acesse:
+            -  `http://localhost:5002/swagger` para a API de autenticação e autorização
+            -  `http://localhost:5001/swagger` para a API AloDoutor 
+
 
 
 ## Histórico da Clínica
@@ -35,44 +98,6 @@ Nesse momento foi solicitado que a informatização fosse realizada sem melhoria
 ## Solução
 Desenvolvimento de uma Web Api em .NET Core com uma abordagem em Code First Migrations, e o Entity Framework para a persistência dos dados em um banco de dados Sql Server.
 
-## Como Executar o Projeto
-Inicializa o banco de dados e as APIs (É necessário ter o docker e o docker-compose instalados na máquina local):
-
-Existem duas opções para executar o projeto, utilizando o Docker ou executando localmente.
-
-- Execução com Docker (recomendada):
-    
-    1- Se você estiver no Windows instale o [WSL](https://learn.microsoft.com/pt-br/windows/wsl/install)
-
-    2- Instale o [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-    
-    3- Clone o repositório
-    
-    4- No terminal vá até a pasta `/AloDoutor` e execute o comando `docker-compose up -d` para executar os containers das aplicações e do SQL Server
-    
-    5- Abra o navegador e acesse:
-        -  `http://localhost:9191/swagger` para a API de autenticação e autorização
-        -  `http://localhost:9090/swagger` para a API AloDoutor
-
-
-- Execução local:
-    1- Clone o repositório
-
-    2- No terminal vá até a pasta `/AloDoutor` e execute o comando `dotnet restore` para restaurar as dependências do projeto
-    
-    3- Atualização da base de dados (este passo não é obrigatório pois a aplicação foi configurada para executar as migrations automaticamente, mas caso queira executar manualmente siga os passos abaixo):
-    - Execute o comando `dotnet tool install --global dotnet-ef`
-    - Vá para a pasta `/AloDoutor.Api`
-    - Execute o comando `dotnet ef database update`
-    - Vá para a pasta `/Identidade.Api`
-    - Execute novamente o comando `dotnet ef database update`
-    
-    4- Executando os projetos:
-    - Volte na pasta `/AloDoutor.Api` execute o comando `dotnet run` para executar o projeto
-    - Abra um novo terminal na pasta `/Identidade.Api` execute o comando `dotnet run` para executar o projeto
-    - Abra o navegador e acesse:
-        -  `http://localhost:5002/swagger` para a API de autenticação e autorização
-        -  `http://localhost:5001/swagger` para a API AloDoutor 
 
 ### DDD
 Para a modelagem da solução utilizamos o Domain Driven Design e fizemos uso do Domain Storytelling para transformar o conhecimento sobre o domínio em requisitos para o desenvolvimento da solução via um Software.
@@ -165,31 +190,4 @@ O time de desenvolvimento conversou com o responsável administrativo pela clín
         - A Senha deve ter o mínimo de 6 caracteres
             - A senha deve ser composta por 1 carater não alfanúmerico, 1 digito (0-9), 1 letra caixa baixa (a-z), 1 letra caixa alta (A-Z)  
             - No momento do cadastro precisa ser inserida 2 vezes
-
-### Screenshots da solução
-    COLOCAR AS IMAGENS DA API AQUI
-## Tecnologias Utilizadas 🛠️
-
-| Tecnologias | Uso
------------- | -------------
-[C#](https://docs.microsoft.com/en-us/dotnet/csharp/) | Linguagem de Programação
-[.NET](https://dotnet.microsoft.com/) | Framework web
-[Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/) | Biblioteca para persistência de Dados (ORM)
-[Serilog](https://serilog.net/) | Captura de Logs
-[Visual Studio 2022](https://visualstudio.microsoft.com/pt-br/) | Editor de Código
-[Docker](https://www.docker.com/) | Criação de Containers
-
-## Integrantes
-
-| Nome | Matrícula | GitHub
------------- | ------------- | -------------
-Alex Jussiani Junior | 350671 | https://github.com/AlexJussiani
-Erick Setti dos Santos | 351206 | https://github.com/ESettiCalculist
-Fábio da Silva Pereira | 351053 | https://github.com/fbiopereira
-Marcel da Silva Fonseca | 348885 |
-Richard Kendy Tanaka| 351234 | https://github.com/RichardKT88
-
-
-- [Levantamento de Requisitos](./documentacao/requisitos.md)
-- [Utilizando a Autenticação e Autorização](./documentacao/autenticacao.md)
 
