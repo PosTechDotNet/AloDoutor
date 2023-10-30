@@ -13,10 +13,10 @@ namespace AloDoutor.Domain.Services
     {
         private readonly IAgendamentoRepository _agendamentoRepository;
         private readonly IEspecialidadeMedicoRepository _especialidadeMedicoRepository;
-        private readonly IPacienteRepository _pacienteRepository;
+        private readonly IPacienteRepository _pacienteRepository; 
 
-
-        public AgendamentoService(IAgendamentoRepository agendamentoRepository, IEspecialidadeMedicoRepository especialidadeMedicoRepository, IPacienteRepository pacienteRepository)
+        public AgendamentoService(IAgendamentoRepository agendamentoRepository, 
+            IEspecialidadeMedicoRepository especialidadeMedicoRepository, IPacienteRepository pacienteRepository)
         {
             _agendamentoRepository = agendamentoRepository;
             _especialidadeMedicoRepository = especialidadeMedicoRepository;
@@ -50,9 +50,9 @@ namespace AloDoutor.Domain.Services
                 return ValidationResult;
             }            
 
-            if (DateTime.Now.Date.AddDays(2) > agendamento.DataHoraAtendimento.Date)
+            if (DateTime.Now.Date.AddDays(CalcularAntecedenciaDiasUteis()) > agendamento.DataHoraAtendimento.Date)
             {
-                AdicionarErro("Reagendamneto deve ser realizado com pelo menos 2 dias de antecedencia!");
+                AdicionarErro("Reagendamento deve ser realizado com pelo menos 2 dias de antecedencia (Desconsiderando sábado e domingo)!");
                 return ValidationResult;
             }
 
@@ -84,9 +84,9 @@ namespace AloDoutor.Domain.Services
                 return ValidationResult;
             }
 
-            if(DateTime.Now.Date.AddDays(2) > agendamento.DataHoraAtendimento.Date)
+            if(DateTime.Now.Date.AddDays(CalcularAntecedenciaDiasUteis()) > agendamento.DataHoraAtendimento.Date)
             {
-                AdicionarErro("Agendamento só pode ser cancelado com pelo menos 2 dias de antecedencia");
+                AdicionarErro("Agendamento só pode ser cancelado com pelo menos 2 dias de antecedencia (Desconsiderando sábado e domingo)!");
                 return ValidationResult;
             }
 
@@ -105,7 +105,7 @@ namespace AloDoutor.Domain.Services
                 return;
             }
 
-            //Agendamneto deve ocorrer com pelo menos 2 horas de antecedencia
+            //Agendamento deve ocorrer com pelo menos 2 horas de antecedencia
             if (agendamento.DataHoraAtendimento.AddHours(2) <= DateTime.Now)
             {
                 AdicionarErro("Agendamento deve ocorrer com pelo 2 horas de antecedencia!");
@@ -114,7 +114,7 @@ namespace AloDoutor.Domain.Services
 
             if (agendamento.DataHoraAtendimento.TimeOfDay < new TimeSpan(9, 0, 0) || agendamento.DataHoraAtendimento.TimeOfDay > new TimeSpan(18, 0, 0))
             {
-                AdicionarErro("Atendimento das 09:00 até as 19 horas!");
+                AdicionarErro("Atendimento das 09:00 até as 18 horas!");
                 return;
             }
 
@@ -156,6 +156,22 @@ namespace AloDoutor.Domain.Services
         private bool VerificarHoraFracionada(DateTime data)
         {
             return data.Minute == 0;
+        }
+        
+        //Essa função calcula a quantidade de dias que deve retornar para desconsiderando fins de semana
+        private int CalcularAntecedenciaDiasUteis()
+        {
+            int antecedenciaDiasUtei = 0;
+            int diasUteisCalculados = 0;
+            DateTime DataCorrente = DateTime.Now.AddDays(0);
+            while (antecedenciaDiasUtei < 2)
+            {
+                DataCorrente = DataCorrente.AddDays(1);
+                if (DataCorrente.DayOfWeek != DayOfWeek.Saturday && DataCorrente.DayOfWeek != DayOfWeek.Sunday)// Se for diferente de sabado e domingo a DiasAntecedencia         
+                    antecedenciaDiasUtei++;                            
+                diasUteisCalculados++;
+            }
+            return diasUteisCalculados;
         }
     }
 }
