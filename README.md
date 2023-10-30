@@ -60,13 +60,18 @@ Existem duas opções para executar o projeto, utilizando o Docker ou executando
 ### Execução com Docker (recomendada)
 
 1- Se você estiver no Windows instale o [WSL](https://learn.microsoft.com/pt-br/windows/wsl/install)
+
 2- Instale o [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
 3- Clone o repositório
+
 4- No terminal vá até a pasta `/AloDoutor` e execute o comando `docker-compose up -d` para executar os containers das aplicações e do SQL Server
+
 5- Digite `docker-compose restart identidade-api-alodoutor` para reiniciar o container da API de autenticação e autorização e criar um usuário padrão para testes
+
 6- Abra o navegador e acesse:
--  [http://localhost:9191/swagger](http://localhost:9191/swagger) para a API de autenticação e autorização
--  [http://localhost:9090/swagger](http://localhost:9090/swagger) para a API AloDoutor
+    -  [http://localhost:9191/swagger](http://localhost:9191/swagger) para a API de autenticação e autorização
+    -  [http://localhost:9090/swagger](http://localhost:9090/swagger) para a API AloDoutor
 
 [voltar](#índice)
 
