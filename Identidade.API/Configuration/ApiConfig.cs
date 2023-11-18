@@ -2,6 +2,7 @@
 using Identidade.API.Services;
 using AloDoutor.Core.Identidade;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Identidade.API.Configuration
 {
@@ -28,7 +29,7 @@ namespace Identidade.API.Configuration
             return services;
         }
 
-        public static IApplicationBuilder UseApiConfiguration(this IApplicationBuilder app, IWebHostEnvironment env)
+        public static async Task<IApplicationBuilder> UseApiConfigurationAsync(this IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment() || env.IsStaging())
             {
@@ -36,8 +37,11 @@ namespace Identidade.API.Configuration
 
                 using (var scope = app.ApplicationServices.CreateScope())
                 {
-                    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-                    dbContext.Database.Migrate();
+                    var services = scope.ServiceProvider;
+                    var dbContext = services.GetRequiredService<ApplicationDbContext>();
+                    var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
+                    await dbContext.Database.MigrateAsync();
+                    await IdentityConfig.CreateUserDefault(services);
                 }
             }
 

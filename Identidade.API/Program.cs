@@ -20,23 +20,23 @@ builder.Services.AddApiConfig(builder.Configuration);
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
+/*using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     try
     {
         var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
-        IdentityConfig.CreateUserDefault(services).Wait();
+        IdentityConfig.CreateUserDefault(services);
     }
     catch (Exception ex)
     {
         // Lide com erros, registre-os ou tome medidas apropriadas.
     }
-}
+}*/
 
 // Configure the HTTP request pipeline.
 app.UseSwaggerConfiguration();
 
-app.UseApiConfiguration(app.Environment);
+app.UseApiConfigurationAsync(app.Environment);
 
 app.Run();

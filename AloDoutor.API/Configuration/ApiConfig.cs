@@ -1,7 +1,6 @@
 ﻿using AloDoutor.Core.Identidade;
 using AloDoutor.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
-using System.Text.Json.Serialization;
 
 namespace AloDoutor.Api.Configuration
 {
@@ -10,7 +9,7 @@ namespace AloDoutor.Api.Configuration
         public static IServiceCollection AddApiConfig(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<MeuDbContext>(options =>
-               options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));           
+               options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllers();
 
@@ -47,7 +46,7 @@ namespace AloDoutor.Api.Configuration
 
             app.UseAuthConfiguration();
 
-            app.UseCors("Total");           
+            app.UseCors("Total");
 
             app.UseEndpoints(endpoints =>
             {
