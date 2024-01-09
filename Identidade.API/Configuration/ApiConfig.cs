@@ -44,7 +44,7 @@ namespace Identidade.API.Configuration
 
                 try
                 {
-                    await dbContext.Database.MigrateAsync();
+                    dbContext.Database.Migrate();
                     await IdentityConfig.CreateUserDefault(services);
                 }
                 catch (Exception ex)
