@@ -35,14 +35,25 @@ namespace Identidade.API.Configuration
             {
                 app.UseDeveloperExceptionPage();
 
-                using (var scope = app.ApplicationServices.CreateScope())
+                using var scope = app.ApplicationServices.CreateScope();
+                
+                var services = scope.ServiceProvider;
+                var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+                var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+
+                try
                 {
-                    var services = scope.ServiceProvider;
-                    var dbContext = services.GetRequiredService<ApplicationDbContext>();
-                    var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
                     await dbContext.Database.MigrateAsync();
                     await IdentityConfig.CreateUserDefault(services);
                 }
+                catch (Exception ex)
+                {
+
+                    logger.LogError(ex, "Problema ao tentar migrar os dados.");
+                }
+                   
+                
             }
 
             app.UseHttpsRedirection();
