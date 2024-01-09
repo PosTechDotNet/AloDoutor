@@ -25,4 +25,4 @@ app.UseSwaggerConfiguration();
 
 await app.UseApiConfigurationAsync(app.Environment);
 
-app.Run();
+await app.RunAsync();
